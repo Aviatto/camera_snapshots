@@ -72,7 +72,7 @@ def get_snap(ip):
     # Trying to retrieve the snapshot
     url = SNAP_URL.format(ip)
     try:
-        logger.info('sending a get requests for {}'.format(url))
+        logger.debug('sending a get requests for {}'.format(url))
         jpeg = requests.get(url, timeout=5)
     except requests.exceptions.Timeout as e:
         logger.error('{} did not respond ):'.format(ip))
@@ -84,10 +84,11 @@ def get_snap(ip):
         logger.error('a new error had occurred!\n\t{}'.format(e))
         return None
 
-    logger.info('got the snapshot with status code {}'.format(jpeg.status_code))
+    logger.debug('got the snapshot with status code {}'.format(jpeg.status_code))
 
     # Checking if we indeed got the snapshot
     if jpeg.status_code == 200:
+        logger.info('successfully got image from {}'.format(ip))
         jpeg_raw = jpeg.content
         jpeg_image = Image.open(io.BytesIO(jpeg_raw))
 
