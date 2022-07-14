@@ -4,5 +4,4 @@
 		{"CAMERA-2-DNS-NAME" : "CAMER-2-SNAPSHOT-FOLDER-NAME"},
 		{"CAMERA-3-DNS-NAME" : "CAMER-3-SNAPSHOT-FOLDER-NAME"},
  	],
- 	"rootdir" : "/path/to/create/snapshot/dirs/in"
 } 
