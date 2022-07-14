@@ -3,6 +3,7 @@ services:
   snapshot:
     image: snapshot
     container_name: snapshotcont
+    restart: unless-stopped
     build: .
     network_mode: "host"
     
@@ -10,9 +11,9 @@ services:
       - CONFIG_FOLDER_NAME=config       # The name of the config dir
       - CONFIG_FILE_NAME=cameras.json   # Name of the config file inside of the condif dir
       - SNAPS_FOLDER_NAME=snaps         # Name of the folder in which the pictures will be saved
-      - SNAPS_TIME_OF_DAY=19            # The time in which snapshots will be taken
+      - SNAPS_TIME_OF_DAY=14            # The time in which snapshots will be taken
     
     volumes:
-      - <CONFIG DIR ON MACHINE>:/usr/src/app/config
+      - /mnt/geron/sandbox/tmp:/usr/src/app/config
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
