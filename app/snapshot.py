@@ -151,6 +151,7 @@ def get_parser():
 
     return parser
 
+
 def main():
     global logger
 
